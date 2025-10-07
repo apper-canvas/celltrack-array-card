@@ -63,7 +63,7 @@ const processTradeInData = () => {
     const { timeline } = insights.tradeInTrends;
     
     return {
-      categories: timeline.map(t => t.date ? format(new Date(t.date), "MMM dd") : "N/A"),
+      categories: timeline.map(t => t.date && !isNaN(new Date(t.date).getTime()) ? format(new Date(t.date), "MMM dd") : "N/A"),
       series: [
         {
           name: "Trade-In Value",
