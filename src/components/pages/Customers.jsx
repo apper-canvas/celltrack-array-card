@@ -12,7 +12,7 @@ import customerService from "@/services/api/customerService";
 import { format } from "date-fns";
 import { toast } from "react-toastify";
 const Customers = () => {
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const [customers, setCustomers] = useState([]);
   const [filteredCustomers, setFilteredCustomers] = useState([]);
   const [loading, setLoading] = useState(true);
