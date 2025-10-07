@@ -841,11 +841,11 @@ if (loading) {
                       </div>
                     </Card>
                   ))}
-                </>
-)}
+</>
+              )}
             </div>
           )}
-        )}
+        </div>
       </div>
     </div>
   );
