@@ -60,14 +60,19 @@ const deviceService = {
     return true;
   },
 
-  async getLowStock(threshold = 10) {
+async getLowStock(threshold = 10) {
     await delay(250);
-    return devices.filter(d => d.quantity < threshold && d.quantity > 0);
+    return devices.filter(d => d.quantity < (d.lowStockThreshold || threshold) && d.quantity > 0);
   },
 
-async getOutOfStock() {
+  async getOutOfStock() {
     await delay(250);
     return devices.filter(d => d.quantity === 0);
+  },
+
+  async getDevicesBelowThreshold() {
+    await delay(250);
+    return devices.filter(d => d.quantity < d.lowStockThreshold);
   }
 };
 
