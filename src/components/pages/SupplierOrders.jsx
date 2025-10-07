@@ -507,11 +507,10 @@ if (loading) {
               <Button type="submit" variant="primary">
                 Create Order
               </Button>
-            </div>
+</div>
           </form>
         </Card>
-)}
-
+      )}
       {/* Auto Suggestions Tab */}
       {activeTab === 'suggestions' && (
         <div className="space-y-4">
@@ -842,12 +841,10 @@ if (loading) {
                       </div>
                     </Card>
 ))}
-                </>
+</>
               )}
             </div>
           )}
-        </div>
-      </div>
     </div>
   );
 };
