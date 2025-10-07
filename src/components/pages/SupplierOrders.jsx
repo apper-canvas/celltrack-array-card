@@ -731,6 +731,7 @@ if (loading) {
           )}
 
           {/* Supplier Performance Tab */}
+{/* Supplier Performance Tab */}
           {activeTab === 'performance' && (
             <div className="space-y-4">
               {loadingPerformance ? (
@@ -840,8 +841,8 @@ if (loading) {
                         </div>
                       </div>
                     </Card>
-                  ))}
-</>
+))}
+                </>
               )}
             </div>
           )}
