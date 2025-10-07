@@ -108,8 +108,10 @@ async getSalesAnalytics(startDate, endDate) {
       });
     });
     
-    return Object.values(productCounts)
+return Object.values(productCounts)
       .sort((a, b) => b.quantity - a.quantity)
       .slice(0, 5);
   }
 };
+
+export default saleService;
