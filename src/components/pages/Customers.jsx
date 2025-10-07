@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Card from "@/components/atoms/Card";
 import Button from "@/components/atoms/Button";
 import SearchBar from "@/components/molecules/SearchBar";
@@ -10,8 +11,8 @@ import Empty from "@/components/ui/Empty";
 import customerService from "@/services/api/customerService";
 import { format } from "date-fns";
 import { toast } from "react-toastify";
-
 const Customers = () => {
+const navigate = useNavigate();
   const [customers, setCustomers] = useState([]);
   const [filteredCustomers, setFilteredCustomers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -120,7 +121,12 @@ const Customers = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredCustomers.map(customer => (
-              <Card key={customer.Id} hoverable className="space-y-3">
+<Card 
+                key={customer.Id} 
+                hoverable 
+                className="space-y-3"
+                onClick={() => navigate(`/customers/${customer.Id}`)}
+              >
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-semibold">

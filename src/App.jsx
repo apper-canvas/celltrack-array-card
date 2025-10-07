@@ -7,10 +7,10 @@ import SupplierOrders from "@/components/pages/SupplierOrders";
 import POS from "@/components/pages/POS";
 import Repairs from "@/components/pages/Repairs";
 import Customers from "@/components/pages/Customers";
+import CustomerDetail from "@/components/pages/CustomerDetail";
 import Analytics from "@/components/pages/Analytics";
 import BusinessInsights from "@/components/pages/BusinessInsights";
 import WarrantyClaims from "@/components/pages/WarrantyClaims";
-
 function App() {
   return (
     <BrowserRouter>
@@ -32,7 +32,8 @@ function App() {
           <Route path="inventory" element={<Inventory />} />
           <Route path="pos" element={<POS />} />
           <Route path="repairs" element={<Repairs />} />
-          <Route path="customers" element={<Customers />} />
+<Route path="customers" element={<Customers />} />
+          <Route path="customers/:id" element={<CustomerDetail />} />
           <Route path="analytics" element={<Analytics />} />
           <Route path="business-insights" element={<BusinessInsights />} />
           <Route path="warranty-claims" element={<WarrantyClaims />} />
