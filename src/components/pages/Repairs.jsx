@@ -212,7 +212,7 @@ const Repairs = () => {
                         </Button>
                       )}
                       {ticket.status === "In Progress" && (
-                        <Button
+<Button
                           variant="success"
                           size="sm"
                           onClick={() => updateStatus(ticket.Id, "Completed")}
@@ -221,16 +221,15 @@ const Repairs = () => {
                           <ApperIcon name="CheckCircle" size={16} className="mr-1" />
                           Complete
                         </Button>
-</Button>
                       )}
                     </div>
-                  )}
+)}
                 </div>
               </Card>
+            );
           })}
         </div>
       )}
-
       {showCreateModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <Card className="w-full max-w-lg">
