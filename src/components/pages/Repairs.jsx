@@ -168,7 +168,7 @@ const Repairs = () => {
                     </div>
                   </div>
 
-                  {ticket.diagnosis && (
+{ticket.diagnosis && (
                     <div className="flex items-start gap-2">
                       <ApperIcon name="Stethoscope" size={18} className="text-gray-500 mt-0.5" />
                       <div>
@@ -176,7 +176,6 @@ const Repairs = () => {
                         <p className="text-secondary">{ticket.diagnosis}</p>
                       </div>
                     </div>
-</div>
                   )}
 
                   <div className="flex items-center gap-4 pt-2 border-t border-gray-200">
@@ -222,11 +221,12 @@ const Repairs = () => {
                           <ApperIcon name="CheckCircle" size={16} className="mr-1" />
                           Complete
                         </Button>
+</Button>
                       )}
                     </div>
                   )}
+                </div>
               </Card>
-            );
           })}
         </div>
       )}
