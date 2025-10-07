@@ -1,4 +1,6 @@
 import devicesData from "@/services/mockData/devices.json";
+import React from "react";
+import Error from "@/components/ui/Error";
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -65,9 +67,14 @@ const deviceService = {
     return devices.filter(d => d.quantity < threshold && d.quantity > 0);
   },
 
-  async getOutOfStock() {
+async getOutOfStock() {
     await delay(250);
     return devices.filter(d => d.quantity === 0);
+  },
+
+  async getCurrentStock() {
+    await delay(200);
+    return { ...currentStock };
   }
 };
 

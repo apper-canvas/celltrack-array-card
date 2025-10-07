@@ -43,7 +43,11 @@ const supplierService = {
     if (index === -1) throw new Error("Supplier not found");
     suppliers[index] = { ...suppliers[index], ...updates };
     return { ...suppliers[index] };
+},
+
+  async getActiveSuppliers() {
+    await delay(200);
+    return suppliers.filter(s => s.status === 'Active').map(supplier => ({ ...supplier }));
   }
 };
-
 export default supplierService;

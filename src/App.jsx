@@ -3,6 +3,7 @@ import { ToastContainer } from "react-toastify";
 import Layout from "@/components/organisms/Layout";
 import Dashboard from "@/components/pages/Dashboard";
 import Inventory from "@/components/pages/Inventory";
+import SupplierOrders from "@/components/pages/SupplierOrders";
 import POS from "@/components/pages/POS";
 import Repairs from "@/components/pages/Repairs";
 import Customers from "@/components/pages/Customers";
@@ -30,7 +31,8 @@ function App() {
           <Route path="pos" element={<POS />} />
           <Route path="repairs" element={<Repairs />} />
           <Route path="customers" element={<Customers />} />
-          <Route path="analytics" element={<Analytics />} />
+<Route path="analytics" element={<Analytics />} />
+          <Route path="supplier-orders" element={<SupplierOrders />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,9 +1,33 @@
 import salesData from "@/services/mockData/sales.json";
+import React from "react";
+import Error from "@/components/ui/Error";
+
+let sales = [...salesData];
+let nextId = Math.max(...sales.map(s => s.Id), 0) + 1;
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-let sales = [...salesData];
-
+const calculateSalesVelocity = () => {
+  const thirtyDaysAgo = new Date();
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+  
+  const recentSales = sales.filter(sale => 
+    new Date(sale.saleDate) >= thirtyDaysAgo
+  );
+  
+  const velocityMap = {};
+  recentSales.forEach(sale => {
+    sale.items.forEach(item => {
+      velocityMap[item.deviceId] = (velocityMap[item.deviceId] || 0) + item.quantity;
+    });
+  });
+  
+  Object.keys(velocityMap).forEach(deviceId => {
+    velocityMap[deviceId] = velocityMap[deviceId] / 30;
+  });
+  
+  return velocityMap;
+};
 const saleService = {
   async getAll() {
     await delay(300);
@@ -50,11 +74,11 @@ const saleService = {
     return sales.reduce((total, s) => total + s.total, 0);
   },
 
-  async getSalesAnalytics(startDate, endDate) {
+async getSalesAnalytics(startDate, endDate) {
     await delay(300);
     const filtered = sales.filter(s => {
-      const saleDate = new Date(s.timestamp);
-      return saleDate >= startDate && saleDate <= endDate;
+      const saleDate = new Date(s.saleDate || s.timestamp);
+      return saleDate >= new Date(startDate) && saleDate <= new Date(endDate);
     });
     
     return {
@@ -65,6 +89,11 @@ const saleService = {
         : 0,
       topProducts: this._getTopProducts(filtered)
     };
+  },
+
+  async getSalesVelocity() {
+    await delay(200);
+    return calculateSalesVelocity();
   },
 
   _getTopProducts(salesList) {
@@ -84,5 +113,3 @@ const saleService = {
       .slice(0, 5);
   }
 };
-
-export default saleService;
