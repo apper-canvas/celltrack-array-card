@@ -11,7 +11,8 @@ const navItems = [
     { path: "/customers", icon: "Users", label: "Customers" },
     { path: "/warranty-claims", icon: "Shield", label: "Warranty Claims" },
     { path: "/supplier-orders", icon: "Truck", label: "Supplier Orders" },
-    { path: "/analytics", icon: "BarChart3", label: "Analytics" }
+    { path: "/analytics", icon: "BarChart3", label: "Analytics" },
+    { path: "/business-insights", icon: "TrendingUp", label: "Business Insights" }
   ];
   
   return (

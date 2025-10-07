@@ -74,7 +74,7 @@ const saleService = {
     return sales.reduce((total, s) => total + s.total, 0);
   },
 
-async getSalesAnalytics(startDate, endDate) {
+  async getSalesAnalytics(startDate, endDate) {
     await delay(300);
     const filtered = sales.filter(s => {
       const saleDate = new Date(s.saleDate || s.timestamp);
@@ -96,6 +96,61 @@ async getSalesAnalytics(startDate, endDate) {
     return calculateSalesVelocity();
   },
 
+  async getSeasonalPatterns() {
+    await delay(350);
+    const monthlyData = {};
+    
+    sales.forEach(sale => {
+      const saleDate = new Date(sale.timestamp);
+      const monthKey = `${saleDate.getFullYear()}-${String(saleDate.getMonth() + 1).padStart(2, '0')}`;
+      
+      if (!monthlyData[monthKey]) {
+        monthlyData[monthKey] = {
+          month: saleDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short' }),
+          revenue: 0,
+          count: 0
+        };
+      }
+      
+      monthlyData[monthKey].revenue += sale.total;
+      monthlyData[monthKey].count += 1;
+    });
+    
+    const monthlyRevenue = Object.values(monthlyData).sort((a, b) => 
+      new Date(a.month) - new Date(b.month)
+    );
+    
+    const seasonalTotals = {
+      Winter: 0,
+      Spring: 0,
+      Summer: 0,
+      Fall: 0
+    };
+    
+    sales.forEach(sale => {
+      const month = new Date(sale.timestamp).getMonth();
+      if (month === 11 || month <= 1) seasonalTotals.Winter += sale.total;
+      else if (month >= 2 && month <= 4) seasonalTotals.Spring += sale.total;
+      else if (month >= 5 && month <= 7) seasonalTotals.Summer += sale.total;
+      else seasonalTotals.Fall += sale.total;
+    });
+    
+    const peakMonth = monthlyRevenue.reduce((max, curr) => 
+      curr.revenue > max.revenue ? curr : max
+    , { revenue: 0, month: 'N/A' }).month;
+    
+    const peakSeason = Object.entries(seasonalTotals).reduce((max, [season, revenue]) => 
+      revenue > max.revenue ? { season, revenue } : max
+    , { season: 'N/A', revenue: 0 }).season;
+    
+    return {
+      monthlyRevenue,
+      seasonalTotals,
+      peakMonth,
+      peakSeason
+    };
+  },
+
   _getTopProducts(salesList) {
     const productCounts = {};
     salesList.forEach(sale => {
@@ -108,7 +163,7 @@ async getSalesAnalytics(startDate, endDate) {
       });
     });
     
-return Object.values(productCounts)
+    return Object.values(productCounts)
       .sort((a, b) => b.quantity - a.quantity)
       .slice(0, 5);
   }

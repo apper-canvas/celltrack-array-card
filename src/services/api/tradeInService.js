@@ -69,6 +69,45 @@ const tradeInService = {
     const conditionMultiplier = baseValues[condition] || 0.5;
     
     return Math.round(basePrice * conditionMultiplier);
+  },
+
+  async getTradeInTrends(startDate, endDate) {
+    await delay(350);
+    const filtered = tradeIns.filter(t => {
+      const tradeDate = new Date(t.timestamp);
+      return tradeDate >= new Date(startDate) && tradeDate <= new Date(endDate);
+    });
+
+    const daysDiff = Math.ceil((new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24));
+    const intervalDays = Math.max(1, Math.floor(daysDiff / 15));
+    
+    const timeline = [];
+    for (let i = 0; i < daysDiff; i += intervalDays) {
+      const intervalStart = new Date(startDate);
+      intervalStart.setDate(intervalStart.getDate() + i);
+      const intervalEnd = new Date(intervalStart);
+      intervalEnd.setDate(intervalEnd.getDate() + intervalDays);
+      
+      const intervalData = filtered.filter(t => {
+        const td = new Date(t.timestamp);
+        return td >= intervalStart && td < intervalEnd;
+      });
+      
+      const accepted = intervalData.filter(t => t.accepted).length;
+      const total = intervalData.length;
+      
+      timeline.push({
+        date: intervalStart.toISOString(),
+        count: total,
+        averageOffer: total > 0 
+          ? intervalData.reduce((sum, t) => sum + t.offerAmount, 0) / total 
+          : 0,
+        acceptanceRate: total > 0 ? (accepted / total) * 100 : 0,
+        totalValue: intervalData.reduce((sum, t) => sum + (t.accepted ? t.offerAmount : 0), 0)
+      });
+    }
+    
+    return { timeline };
   }
 };
 

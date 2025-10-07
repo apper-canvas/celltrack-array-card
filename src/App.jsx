@@ -8,6 +8,7 @@ import POS from "@/components/pages/POS";
 import Repairs from "@/components/pages/Repairs";
 import Customers from "@/components/pages/Customers";
 import Analytics from "@/components/pages/Analytics";
+import BusinessInsights from "@/components/pages/BusinessInsights";
 import WarrantyClaims from "@/components/pages/WarrantyClaims";
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
         draggable
         pauseOnHover
       />
-      <Routes>
+<Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="/dashboard" replace />} />
           <Route path="dashboard" element={<Dashboard />} />
@@ -32,8 +33,9 @@ function App() {
           <Route path="pos" element={<POS />} />
           <Route path="repairs" element={<Repairs />} />
           <Route path="customers" element={<Customers />} />
-<Route path="analytics" element={<Analytics />} />
-            <Route path="warranty-claims" element={<WarrantyClaims />} />
+          <Route path="analytics" element={<Analytics />} />
+          <Route path="business-insights" element={<BusinessInsights />} />
+          <Route path="warranty-claims" element={<WarrantyClaims />} />
           <Route path="supplier-orders" element={<SupplierOrders />} />
         </Route>
       </Routes>
