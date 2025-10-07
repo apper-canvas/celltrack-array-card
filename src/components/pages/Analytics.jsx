@@ -50,7 +50,16 @@ const Analytics = () => {
     }
   };
 
-const revenueChartOptions = {
+const generateDateLabels = () => {
+    const labels = [];
+    for (let i = dateRange - 1; i >= 0; i--) {
+      const date = subDays(new Date(), i);
+      labels.push(format(date, "MMM dd"));
+    }
+    return labels;
+  };
+
+  const revenueChartOptions = {
     chart: {
       type: "line",
       toolbar: { show: false },
@@ -70,10 +79,10 @@ const revenueChartOptions = {
       }
     },
     xaxis: {
-      categories: Array.from({ length: dateRange }, (_, i) => {
-        const date = subDays(new Date(), dateRange - i - 1);
-        return date && !isNaN(date.getTime()) ? format(date, "MMM dd") : "Invalid";
-      })
+      categories: generateDateLabels(),
+      labels: {
+        style: { colors: "#64748b" }
+      }
     },
     yaxis: {
       labels: {

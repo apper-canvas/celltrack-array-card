@@ -176,55 +176,55 @@ const Repairs = () => {
                         <p className="text-secondary">{ticket.diagnosis}</p>
                       </div>
                     </div>
-)}
+</div>
+                  )}
 
                   <div className="flex items-center gap-4 pt-2 border-t border-gray-200">
                     <div>
                       <p className="text-small text-gray-600">Estimated Cost</p>
                       <p className="font-semibold text-secondary">${ticket.estimatedCost}</p>
                     </div>
-                    <div className="flex-1">
+                    <div>
                       <p className="text-small text-gray-600">Date Received</p>
-                      <p className="text-secondary">{ticket.dateReceived ? format(new Date(ticket.dateReceived), "MMM dd, yyyy") : "Unknown date"}</p>
+                      <p className="text-secondary">{ticket.dateReceived && !isNaN(new Date(ticket.dateReceived).getTime()) ? format(new Date(ticket.dateReceived), "MMM dd, yyyy") : "Unknown date"}</p>
                     </div>
                   </div>
 
-{ticket.status !== "Completed" && ticket.status !== "Cancelled" && (
-                  <div className="flex gap-2 pt-2 border-t border-gray-200">
-                    {ticket.status === "Received" && (
-                      <Button
-                        variant="primary"
-                        size="sm"
-                        onClick={() => updateStatus(ticket.Id, "Diagnosed")}
-                        className="flex-1"
-                      >
-                        Mark Diagnosed
-                      </Button>
-                    )}
-                    {ticket.status === "Diagnosed" && (
-                      <Button
-                        variant="primary"
-                        size="sm"
-                        onClick={() => updateStatus(ticket.Id, "In Progress")}
-                        className="flex-1"
-                      >
-                        Start Repair
-                      </Button>
-                    )}
-                    {ticket.status === "In Progress" && (
-                      <Button
-                        variant="success"
-                        size="sm"
-                        onClick={() => updateStatus(ticket.Id, "Completed")}
-                        className="flex-1"
-                      >
-                        <ApperIcon name="CheckCircle" size={16} className="mr-1" />
-                        Complete
-                      </Button>
-                    )}
-                  </div>
-                )}
-                </div>
+                  {ticket.status !== "Completed" && ticket.status !== "Cancelled" && (
+                    <div className="flex gap-2 pt-2 border-t border-gray-200">
+                      {ticket.status === "Received" && (
+                        <Button
+                          variant="primary"
+                          size="sm"
+                          onClick={() => updateStatus(ticket.Id, "Diagnosed")}
+                          className="flex-1"
+                        >
+                          Mark Diagnosed
+                        </Button>
+                      )}
+                      {ticket.status === "Diagnosed" && (
+                        <Button
+                          variant="primary"
+                          size="sm"
+                          onClick={() => updateStatus(ticket.Id, "In Progress")}
+                          className="flex-1"
+                        >
+                          Start Repair
+                        </Button>
+                      )}
+                      {ticket.status === "In Progress" && (
+                        <Button
+                          variant="success"
+                          size="sm"
+                          onClick={() => updateStatus(ticket.Id, "Completed")}
+                          className="flex-1"
+                        >
+                          <ApperIcon name="CheckCircle" size={16} className="mr-1" />
+                          Complete
+                        </Button>
+                      )}
+                    </div>
+                  )}
               </Card>
             );
           })}

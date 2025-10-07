@@ -633,21 +633,25 @@ if (loading) {
                               </Badge>
                             )}
                           </div>
-                          <div className="text-small text-gray-600 space-y-1">
+<div className="text-small text-gray-600 space-y-1">
                             <div className="flex items-center gap-2">
                               <ApperIcon name="Building2" size={14} />
                               {supplier?.name || 'Unknown Supplier'}
-<div className="flex items-center gap-1 text-small text-gray-600">
-                              <ApperIcon name="Calendar" size={14} />
-                              Ordered: {order.orderDate ? format(new Date(order.orderDate), 'MMM dd, yyyy') : 'N/A'}
                             </div>
-                            <div className="flex items-center gap-1 text-small text-gray-600">
+                            <div className="flex items-center gap-2">
+                              <ApperIcon name="Calendar" size={14} />
+                              Ordered: {order.orderDate && !isNaN(new Date(order.orderDate).getTime()) ? format(new Date(order.orderDate), 'MMM dd, yyyy') : 'N/A'}
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <ApperIcon name="Package" size={14} />
+                              Items: {order.items.length}
+                            </div>
+                            <div className="flex items-center gap-2">
                               <ApperIcon name="Truck" size={14} />
-                              Expected: {order.expectedDelivery ? format(new Date(order.expectedDelivery), 'MMM dd, yyyy') : 'TBD'}
+                              Expected: {order.expectedDelivery && !isNaN(new Date(order.expectedDelivery).getTime()) ? format(new Date(order.expectedDelivery), 'MMM dd, yyyy') : 'TBD'}
                             </div>
                           </div>
                         </div>
-                      </div>
                         <div className="text-right">
                           <div className="text-h3 font-bold text-secondary">
                             ${order.totalCost.toFixed(2)}

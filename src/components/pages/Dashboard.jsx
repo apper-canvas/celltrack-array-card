@@ -128,19 +128,19 @@ const Dashboard = () => {
             {recentSales.length === 0 ? (
               <p className="text-center text-gray-500 py-8">No sales yet</p>
             ) : (
-              recentSales.map(sale => (
+recentSales.map(sale => (
                 <div
                   key={sale.Id}
                   className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
                 >
-<div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                       <ApperIcon name="ShoppingBag" size={20} className="text-white" />
                     </div>
                     <div>
                       <p className="font-medium text-secondary">Sale #{sale.Id}</p>
-                      <p className="text-small text-gray-500">
-                        {sale.timestamp ? format(new Date(sale.timestamp), "MMM dd, yyyy HH:mm") : "Unknown time"}
+                      <p className="text-small text-gray-600">
+                        {sale.timestamp && !isNaN(new Date(sale.timestamp).getTime()) ? format(new Date(sale.timestamp), "MMM dd, yyyy HH:mm") : "Unknown time"}
                       </p>
                     </div>
                   </div>

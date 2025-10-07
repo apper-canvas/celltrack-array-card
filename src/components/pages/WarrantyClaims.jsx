@@ -193,7 +193,7 @@ const WarrantyClaims = () => {
                   <option value="">Select Sale</option>
                   {sales.map(sale => (
                     <option key={sale.Id} value={sale.Id}>
-                      {sale.saleId} - {sale.timestamp ? format(new Date(sale.timestamp), 'MMM dd, yyyy') : 'Unknown date'} - ${sale.total.toFixed(2)}
+                      {sale.saleId} - {sale.timestamp && !isNaN(new Date(sale.timestamp).getTime()) ? format(new Date(sale.timestamp), 'MMM dd, yyyy') : 'Unknown date'} - ${sale.total?.toFixed(2) || '0.00'}
                     </option>
                   ))}
                 </select>
@@ -307,10 +307,10 @@ const WarrantyClaims = () => {
                           {claim.status}
                         </span>
 </div>
-                      <div className="text-small text-gray-600 space-y-1">
-                        <div>
-                          Filed: {claim.claimDate ? format(new Date(claim.claimDate), 'MMM dd, yyyy h:mm a') : 'Unknown'}
-                        </div>
+                      <p className="text-small text-gray-600 mt-1">
+                        Filed: {claim.claimDate && !isNaN(new Date(claim.claimDate).getTime()) ? format(new Date(claim.claimDate), 'MMM dd, yyyy h:mm a') : 'Unknown'}
+                      </p>
+                      <div className="flex flex-wrap gap-4 text-small text-gray-600 mt-2">
                         <div className="flex items-center gap-2">
                           <ApperIcon name="ShoppingCart" size={14} />
                           Sale: {sale?.saleId || 'Unknown'}
@@ -351,11 +351,9 @@ const WarrantyClaims = () => {
                     <div className="border-t pt-3">
                       <h4 className="text-sm font-semibold text-secondary mb-2">Resolution Notes</h4>
                       <p className="text-small text-gray-700">{claim.resolutionNotes}</p>
-                      {claim.resolutionDate && (
-                        <p className="text-small text-gray-600 mt-1">
-                          Resolved: {claim.resolutionDate ? format(new Date(claim.resolutionDate), 'MMM dd, yyyy h:mm a') : 'Pending'}
-                        </p>
-                      )}
+                      <p className="text-small text-gray-600 mt-2">
+                        Resolved: {claim.resolutionDate && !isNaN(new Date(claim.resolutionDate).getTime()) ? format(new Date(claim.resolutionDate), 'MMM dd, yyyy h:mm a') : 'Pending'}
+                      </p>
                     </div>
                   )}
 

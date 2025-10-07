@@ -161,14 +161,15 @@ export default function CustomerDetail() {
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-body font-medium text-secondary">
-                        Sale #{sale.Id}
+Sale #{sale.Id}
                       </span>
                       <Badge variant="success">{sale.paymentMethod}</Badge>
                     </div>
-                    <div className="text-small text-secondary/60 mb-2">
-                      {sale.date ? format(new Date(sale.date), "MMM dd, yyyy 'at' h:mm a") : "Unknown date"}
+                    <div className="flex items-center gap-2 text-small text-secondary/60">
+                      <ApperIcon name="Calendar" size={14} />
+                      {sale.date && !isNaN(new Date(sale.date).getTime()) ? format(new Date(sale.date), "MMM dd, yyyy 'at' h:mm a") : "Unknown date"}
                     </div>
-                    <div className="text-h3 font-semibold text-primary">
+                    <div className="text-small text-secondary/60">
                       ${sale.totalAmount.toFixed(2)}
                     </div>
                     {sale.discount > 0 && (
@@ -257,14 +258,15 @@ export default function CustomerDetail() {
                         {repair.status}
                       </Badge>
                       <Badge variant="default">{repair.priority}</Badge>
-                    </div>
+</div>
                     <div className="text-small text-secondary/70 mb-2">
                       {repair.deviceModel} - {repair.issueType}
                     </div>
-                    <div className="text-small text-secondary/60 mb-2">
-                      Created: {repair.createdAt ? format(new Date(repair.createdAt), "MMM dd, yyyy") : "Unknown date"}
+                    <div className="flex items-center gap-2 text-small text-secondary/60">
+                      <ApperIcon name="Calendar" size={14} />
+                      Created: {repair.createdAt && !isNaN(new Date(repair.createdAt).getTime()) ? format(new Date(repair.createdAt), "MMM dd, yyyy") : "Unknown date"}
                     </div>
-                    <div className="text-h3 font-semibold text-primary">
+                    <div className="text-small text-secondary/60">
                       ${repair.estimatedCost.toFixed(2)}
                     </div>
                   </div>
