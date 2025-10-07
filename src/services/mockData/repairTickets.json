@@ -1,0 +1,58 @@
+[
+  {
+    "Id": 1,
+    "ticketId": "REP001",
+    "customerId": "CUST002",
+    "deviceImei": "351234567890124",
+    "issueDescription": "Cracked screen - front glass damaged",
+    "diagnosis": "Screen replacement required",
+    "estimatedCost": 199,
+    "actualCost": 199,
+    "status": "Completed",
+    "dateReceived": "2024-01-21T10:00:00Z",
+    "dateCompleted": "2024-01-22T16:00:00Z",
+    "technicianId": "TECH001"
+  },
+  {
+    "Id": 2,
+    "ticketId": "REP002",
+    "customerId": "CUST005",
+    "deviceImei": "351234567890127",
+    "issueDescription": "Battery draining quickly, device overheating",
+    "diagnosis": "Battery replacement needed",
+    "estimatedCost": 89,
+    "actualCost": 89,
+    "status": "In Progress",
+    "dateReceived": "2024-01-23T09:30:00Z",
+    "dateCompleted": null,
+    "technicianId": "TECH002"
+  },
+  {
+    "Id": 3,
+    "ticketId": "REP003",
+    "customerId": "CUST006",
+    "deviceImei": "351987654321098",
+    "issueDescription": "Water damage - phone won't turn on",
+    "diagnosis": "Liquid damage inspection in progress",
+    "estimatedCost": 150,
+    "actualCost": null,
+    "status": "Diagnosed",
+    "dateReceived": "2024-01-24T14:15:00Z",
+    "dateCompleted": null,
+    "technicianId": "TECH001"
+  },
+  {
+    "Id": 4,
+    "ticketId": "REP004",
+    "customerId": "CUST001",
+    "deviceImei": "351234567890123",
+    "issueDescription": "Camera not focusing properly",
+    "diagnosis": "Camera module needs replacement",
+    "estimatedCost": 120,
+    "actualCost": null,
+    "status": "Received",
+    "dateReceived": "2024-01-25T11:00:00Z",
+    "dateCompleted": null,
+    "technicianId": null
+  }
+]

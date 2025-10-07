@@ -1,0 +1,62 @@
+[
+  {
+    "Id": 1,
+    "supplierId": "SUP001",
+    "name": "Apple Authorized Distributor",
+    "contact": "John Appleton",
+    "email": "orders@appledist.com",
+    "products": ["iPhone 14 Pro", "iPhone 13", "iPhone SE"],
+    "paymentTerms": "Net 30",
+    "minimumOrder": 5000
+  },
+  {
+    "Id": 2,
+    "supplierId": "SUP002",
+    "name": "Samsung Direct Supply",
+    "contact": "Maria Samsung",
+    "email": "supply@samsungdirect.com",
+    "products": ["Galaxy S23 Ultra", "Galaxy A54", "Galaxy Z Fold 5"],
+    "paymentTerms": "Net 45",
+    "minimumOrder": 3000
+  },
+  {
+    "Id": 3,
+    "supplierId": "SUP003",
+    "name": "Google Retail Partners",
+    "contact": "David Pixel",
+    "email": "partners@googleretail.com",
+    "products": ["Pixel 8 Pro", "Pixel 7a"],
+    "paymentTerms": "Net 30",
+    "minimumOrder": 2000
+  },
+  {
+    "Id": 4,
+    "supplierId": "SUP004",
+    "name": "OnePlus Distribution",
+    "contact": "Lisa One",
+    "email": "dist@oneplus.com",
+    "products": ["OnePlus 11", "OnePlus Nord"],
+    "paymentTerms": "Net 30",
+    "minimumOrder": 1500
+  },
+  {
+    "Id": 5,
+    "supplierId": "SUP005",
+    "name": "Tech Accessories Wholesale",
+    "contact": "Mike Cable",
+    "email": "wholesale@techacc.com",
+    "products": ["USB-C Cable", "PowerCore 20000mAh", "Screen Protectors"],
+    "paymentTerms": "Net 15",
+    "minimumOrder": 500
+  },
+  {
+    "Id": 6,
+    "supplierId": "SUP006",
+    "name": "Premium Case Supply Co",
+    "contact": "Sarah Case",
+    "email": "orders@premiumcase.com",
+    "products": ["Defender Series Case", "Wireless Charger", "Car Mounts"],
+    "paymentTerms": "Net 30",
+    "minimumOrder": 1000
+  }
+]

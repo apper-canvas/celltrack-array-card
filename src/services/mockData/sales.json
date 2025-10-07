@@ -1,0 +1,114 @@
+[
+  {
+    "Id": 1,
+    "saleId": "SALE001",
+    "customerId": "CUST001",
+    "items": [
+      {
+        "deviceId": 1,
+        "name": "iPhone 14 Pro",
+        "quantity": 1,
+        "price": 1099
+      }
+    ],
+    "subtotal": 1099,
+    "tax": 87.92,
+    "discount": 0,
+    "total": 1186.92,
+    "paymentMethod": "Credit Card",
+    "timestamp": "2024-01-22T10:30:00Z",
+    "employeeId": "EMP001"
+  },
+  {
+    "Id": 2,
+    "saleId": "SALE002",
+    "customerId": "CUST002",
+    "items": [
+      {
+        "deviceId": 2,
+        "name": "Galaxy S23 Ultra",
+        "quantity": 1,
+        "price": 1199
+      },
+      {
+        "deviceId": 6,
+        "name": "Defender Series Case",
+        "quantity": 1,
+        "price": 39.99
+      }
+    ],
+    "subtotal": 1238.99,
+    "tax": 99.12,
+    "discount": 50,
+    "total": 1288.11,
+    "paymentMethod": "Cash",
+    "timestamp": "2024-01-22T14:15:00Z",
+    "employeeId": "EMP001"
+  },
+  {
+    "Id": 3,
+    "saleId": "SALE003",
+    "customerId": "CUST003",
+    "items": [
+      {
+        "deviceId": 5,
+        "name": "USB-C Cable",
+        "quantity": 3,
+        "price": 9.99
+      }
+    ],
+    "subtotal": 29.97,
+    "tax": 2.40,
+    "discount": 0,
+    "total": 32.37,
+    "paymentMethod": "Debit Card",
+    "timestamp": "2024-01-23T09:45:00Z",
+    "employeeId": "EMP001"
+  },
+  {
+    "Id": 4,
+    "saleId": "SALE004",
+    "customerId": "CUST004",
+    "items": [
+      {
+        "deviceId": 4,
+        "name": "OnePlus 11",
+        "quantity": 1,
+        "price": 699
+      },
+      {
+        "deviceId": 7,
+        "name": "PowerCore 20000mAh",
+        "quantity": 1,
+        "price": 49.99
+      }
+    ],
+    "subtotal": 748.99,
+    "tax": 59.92,
+    "discount": 0,
+    "total": 808.91,
+    "paymentMethod": "Credit Card",
+    "timestamp": "2024-01-23T16:20:00Z",
+    "employeeId": "EMP001"
+  },
+  {
+    "Id": 5,
+    "saleId": "SALE005",
+    "customerId": "CUST005",
+    "items": [
+      {
+        "deviceId": 8,
+        "name": "iPhone 13",
+        "quantity": 1,
+        "price": 599
+      }
+    ],
+    "subtotal": 599,
+    "tax": 47.92,
+    "discount": 0,
+    "total": 646.92,
+    "paymentMethod": "Cash",
+    "timestamp": "2024-01-24T11:00:00Z",
+    "employeeId": "EMP001"
+  }
+]

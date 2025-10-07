@@ -1,0 +1,74 @@
+[
+  {
+    "Id": 1,
+    "customerId": "CUST001",
+    "name": "John Smith",
+    "phone": "+1-555-0101",
+    "email": "john.smith@email.com",
+    "purchaseHistory": ["SALE001"],
+    "repairHistory": [],
+    "storeCredit": 0,
+    "notes": "Preferred customer - offers Apple products",
+    "dateRegistered": "2024-01-15T10:00:00Z"
+  },
+  {
+    "Id": 2,
+    "customerId": "CUST002",
+    "name": "Sarah Johnson",
+    "phone": "+1-555-0102",
+    "email": "sarah.j@email.com",
+    "purchaseHistory": ["SALE002"],
+    "repairHistory": ["REP001"],
+    "storeCredit": 50,
+    "notes": "Regular customer, prefers Samsung devices",
+    "dateRegistered": "2024-01-10T14:30:00Z"
+  },
+  {
+    "Id": 3,
+    "customerId": "CUST003",
+    "name": "Michael Chen",
+    "phone": "+1-555-0103",
+    "email": "m.chen@email.com",
+    "purchaseHistory": ["SALE003"],
+    "repairHistory": [],
+    "storeCredit": 0,
+    "notes": "Buys accessories frequently",
+    "dateRegistered": "2024-01-18T09:15:00Z"
+  },
+  {
+    "Id": 4,
+    "customerId": "CUST004",
+    "name": "Emily Rodriguez",
+    "phone": "+1-555-0104",
+    "email": "emily.r@email.com",
+    "purchaseHistory": ["SALE004"],
+    "repairHistory": [],
+    "storeCredit": 0,
+    "notes": "First-time customer",
+    "dateRegistered": "2024-01-23T16:00:00Z"
+  },
+  {
+    "Id": 5,
+    "customerId": "CUST005",
+    "name": "David Williams",
+    "phone": "+1-555-0105",
+    "email": "d.williams@email.com",
+    "purchaseHistory": ["SALE005"],
+    "repairHistory": ["REP002"],
+    "storeCredit": 25,
+    "notes": "Loyal customer - interested in refurbished devices",
+    "dateRegistered": "2024-01-12T11:45:00Z"
+  },
+  {
+    "Id": 6,
+    "customerId": "CUST006",
+    "name": "Lisa Anderson",
+    "phone": "+1-555-0106",
+    "email": "lisa.a@email.com",
+    "purchaseHistory": [],
+    "repairHistory": ["REP003"],
+    "storeCredit": 0,
+    "notes": "Screen repair specialist customer",
+    "dateRegistered": "2024-01-20T13:20:00Z"
+  }
+]

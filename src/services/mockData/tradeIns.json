@@ -1,0 +1,41 @@
+[
+  {
+    "Id": 1,
+    "tradeInId": "TRADE001",
+    "customerId": "CUST002",
+    "deviceImei": "351234567890129",
+    "brand": "Apple",
+    "model": "iPhone 12 Pro",
+    "condition": "Good",
+    "evaluationNotes": "Minor scratches on back, screen perfect, all functions working",
+    "offerAmount": 450,
+    "accepted": true,
+    "timestamp": "2024-01-22T13:30:00Z"
+  },
+  {
+    "Id": 2,
+    "tradeInId": "TRADE002",
+    "customerId": "CUST005",
+    "deviceImei": "351234567890130",
+    "brand": "Samsung",
+    "model": "Galaxy S21",
+    "condition": "Fair",
+    "evaluationNotes": "Visible wear, small crack on corner, battery health 85%",
+    "offerAmount": 200,
+    "accepted": true,
+    "timestamp": "2024-01-24T10:45:00Z"
+  },
+  {
+    "Id": 3,
+    "tradeInId": "TRADE003",
+    "customerId": "CUST003",
+    "deviceImei": "351234567890131",
+    "brand": "Google",
+    "model": "Pixel 6",
+    "condition": "Excellent",
+    "evaluationNotes": "Like new condition, no scratches, full functionality",
+    "offerAmount": 350,
+    "accepted": false,
+    "timestamp": "2024-01-23T15:20:00Z"
+  }
+]
