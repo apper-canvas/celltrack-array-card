@@ -153,11 +153,11 @@ const Customers = () => {
                 <div className="flex items-center gap-4 pt-3 border-t border-gray-200">
                   <div>
                     <p className="text-small text-gray-600">Purchases</p>
-                    <p className="font-semibold text-secondary">{customer.purchaseHistory.length}</p>
+<p className="font-semibold text-secondary">{customer.purchaseHistory?.length ?? 0}</p>
                   </div>
                   <div>
                     <p className="text-small text-gray-600">Repairs</p>
-                    <p className="font-semibold text-secondary">{customer.repairHistory.length}</p>
+<p className="font-semibold text-secondary">{customer.repairHistory?.length ?? 0}</p>
                   </div>
                   {customer.storeCredit > 0 && (
                     <div>
