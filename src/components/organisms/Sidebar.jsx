@@ -9,6 +9,7 @@ const navItems = [
     { path: "/pos", icon: "ShoppingCart", label: "Point of Sale" },
     { path: "/repairs", icon: "Wrench", label: "Repairs" },
     { path: "/customers", icon: "Users", label: "Customers" },
+    { path: "/warranty-claims", icon: "Shield", label: "Warranty Claims" },
     { path: "/supplier-orders", icon: "Truck", label: "Supplier Orders" },
     { path: "/analytics", icon: "BarChart3", label: "Analytics" }
   ];

@@ -8,6 +8,7 @@ import POS from "@/components/pages/POS";
 import Repairs from "@/components/pages/Repairs";
 import Customers from "@/components/pages/Customers";
 import Analytics from "@/components/pages/Analytics";
+import WarrantyClaims from "@/components/pages/WarrantyClaims";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="repairs" element={<Repairs />} />
           <Route path="customers" element={<Customers />} />
 <Route path="analytics" element={<Analytics />} />
+            <Route path="warranty-claims" element={<WarrantyClaims />} />
           <Route path="supplier-orders" element={<SupplierOrders />} />
         </Route>
       </Routes>

@@ -1,0 +1,67 @@
+[
+  {
+    "Id": 1,
+    "saleId": 1,
+    "supplierId": 1,
+    "claimDate": "2024-01-25T10:00:00Z",
+    "issueDescription": "Screen not responding to touch in upper right corner. Customer reports issue started 3 days after purchase.",
+    "serialNumber": "IMEI123456789",
+    "status": "Approved",
+    "claimAmount": 299.99,
+    "supplierResponse": "Defect confirmed. Replacement unit authorized under warranty terms.",
+    "resolutionDate": "2024-01-28T14:30:00Z",
+    "resolutionNotes": "Replacement device shipped to customer. Original unit returned to supplier for inspection."
+  },
+  {
+    "Id": 2,
+    "saleId": 2,
+    "supplierId": 2,
+    "claimDate": "2024-01-26T14:20:00Z",
+    "issueDescription": "Battery draining rapidly, device gets hot during normal use. Issue appeared after software update.",
+    "serialNumber": "SN987654321",
+    "status": "Submitted",
+    "claimAmount": 450.00,
+    "supplierResponse": "",
+    "resolutionDate": null,
+    "resolutionNotes": ""
+  },
+  {
+    "Id": 3,
+    "saleId": 4,
+    "supplierId": 3,
+    "claimDate": "2024-01-27T09:15:00Z",
+    "issueDescription": "Camera lens cracked internally without external damage. Manufacturing defect suspected.",
+    "serialNumber": "SN111222333",
+    "status": "Pending",
+    "claimAmount": 180.00,
+    "supplierResponse": "",
+    "resolutionDate": null,
+    "resolutionNotes": ""
+  },
+  {
+    "Id": 4,
+    "saleId": 5,
+    "supplierId": 1,
+    "claimDate": "2024-01-24T11:45:00Z",
+    "issueDescription": "Charging port loose, cable disconnects frequently. Customer reports gentle use only.",
+    "serialNumber": "IMEI444555666",
+    "status": "Rejected",
+    "claimAmount": 89.99,
+    "supplierResponse": "Physical damage detected during inspection. Not covered under warranty terms.",
+    "resolutionDate": "2024-01-26T16:00:00Z",
+    "resolutionNotes": "Customer notified of rejection. Offered paid repair option at discounted rate."
+  },
+  {
+    "Id": 5,
+    "saleId": 3,
+    "supplierId": 2,
+    "claimDate": "2024-01-23T15:30:00Z",
+    "issueDescription": "Device fails to power on after latest update. Multiple restart attempts unsuccessful.",
+    "serialNumber": "SN777888999",
+    "status": "Closed",
+    "claimAmount": 350.00,
+    "supplierResponse": "Software corruption confirmed. Reflashing authorized under warranty.",
+    "resolutionDate": "2024-01-25T10:20:00Z",
+    "resolutionNotes": "Device reflashed successfully at our facility. Customer notified and device returned. Issue resolved."
+  }
+]
