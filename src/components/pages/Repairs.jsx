@@ -176,9 +176,9 @@ const Repairs = () => {
                         <p className="text-secondary">{ticket.diagnosis}</p>
                       </div>
                     </div>
-                  )}
+)}
 
-<div className="flex items-center gap-4 pt-2 border-t border-gray-200">
+                  <div className="flex items-center gap-4 pt-2 border-t border-gray-200">
                     <div>
                       <p className="text-small text-gray-600">Estimated Cost</p>
                       <p className="font-semibold text-secondary">${ticket.estimatedCost}</p>
@@ -188,7 +188,8 @@ const Repairs = () => {
                       <p className="text-secondary">{ticket.dateReceived ? format(new Date(ticket.dateReceived), "MMM dd, yyyy") : "Unknown date"}</p>
                     </div>
                   </div>
-                {ticket.status !== "Completed" && ticket.status !== "Cancelled" && (
+
+{ticket.status !== "Completed" && ticket.status !== "Cancelled" && (
                   <div className="flex gap-2 pt-2 border-t border-gray-200">
                     {ticket.status === "Received" && (
                       <Button
@@ -223,6 +224,7 @@ const Repairs = () => {
                     )}
                   </div>
                 )}
+                </div>
               </Card>
             );
           })}

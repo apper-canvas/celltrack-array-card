@@ -179,7 +179,7 @@ const WarrantyClaims = () => {
               <h2 className="text-h3 font-semibold text-secondary">File New Warranty Claim</h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-secondary mb-1.5">
                   Original Sale <span className="text-error">*</span>
@@ -189,7 +189,6 @@ const WarrantyClaims = () => {
                   onChange={(e) => setFormData(prev => ({ ...prev, saleId: e.target.value }))}
                   className="w-full px-3 py-2 border rounded bg-white text-secondary focus:outline-none focus:ring-2 focus:ring-primary"
                   required
-required
                 >
                   <option value="">Select Sale</option>
                   {sales.map(sale => (
@@ -198,6 +197,7 @@ required
                     </option>
                   ))}
                 </select>
+              </div>
 
               <div>
                 <label className="block text-sm font-medium text-secondary mb-1.5">
@@ -217,7 +217,6 @@ required
                   ))}
                 </select>
               </div>
-
               <FormField
                 label="Serial Number"
                 value={formData.serialNumber}
