@@ -1,5 +1,5 @@
 import salesData from "@/services/mockData/sales.json";
-import React from "react";
+import customerService from '@/services/api/customerService';
 import Error from "@/components/ui/Error";
 
 let sales = [...salesData];
@@ -43,7 +43,7 @@ const saleService = {
     return { ...sale };
   },
 
-  async create(sale) {
+async create(sale) {
     await delay(400);
     const maxId = sales.reduce((max, s) => Math.max(max, s.Id), 0);
     const saleId = `SALE${String(maxId + 1).padStart(3, "0")}`;
@@ -54,6 +54,29 @@ const saleService = {
       timestamp: new Date().toISOString()
     };
     sales.push(newSale);
+    
+    // Automatically add sale to customer's purchase history
+    if (sale.customerId) {
+      const customer = await customerService.getById(sale.customerId);
+      if (customer) {
+        if (!customer.purchaseHistory) {
+          customer.purchaseHistory = [];
+        }
+        customer.purchaseHistory.push({
+          saleId: newSale.saleId,
+          deviceId: sale.deviceId,
+          amount: sale.finalPrice,
+          date: newSale.timestamp
+        });
+        
+        // Update customer totals
+        customer.totalPurchases = (customer.totalPurchases || 0) + 1;
+        customer.lifetimeValue = (customer.lifetimeValue || 0) + sale.finalPrice;
+        
+        await customerService.update(customer.Id, customer);
+      }
+    }
+    
     return { ...newSale };
   },
 

@@ -28,9 +28,11 @@ const customerService = {
       ...customer,
       Id: maxId + 1,
       customerId,
-      registrationDate: new Date().toISOString(),
+registrationDate: new Date().toISOString(),
       totalPurchases: 0,
-      lifetimeValue: 0
+      lifetimeValue: 0,
+      purchaseHistory: [],
+      repairHistory: []
     };
     customers.push(newCustomer);
     return { ...newCustomer };
