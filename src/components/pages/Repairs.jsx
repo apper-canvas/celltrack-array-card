@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
-import Card from "@/components/atoms/Card";
-import Button from "@/components/atoms/Button";
-import Badge from "@/components/atoms/Badge";
-import ApperIcon from "@/components/ApperIcon";
-import Loading from "@/components/ui/Loading";
-import Error from "@/components/ui/Error";
-import Empty from "@/components/ui/Empty";
-import repairService from "@/services/api/repairService";
-import customerService from "@/services/api/customerService";
+import React, { useEffect, useState } from "react";
 import { format } from "date-fns";
 import { toast } from "react-toastify";
+import ApperIcon from "@/components/ApperIcon";
+import Error from "@/components/ui/Error";
+import Empty from "@/components/ui/Empty";
+import Loading from "@/components/ui/Loading";
+import Badge from "@/components/atoms/Badge";
+import Card from "@/components/atoms/Card";
+import Button from "@/components/atoms/Button";
+import customerService from "@/services/api/customerService";
+import repairService from "@/services/api/repairService";
 
 const Repairs = () => {
   const [tickets, setTickets] = useState([]);
@@ -178,18 +178,16 @@ const Repairs = () => {
                     </div>
                   )}
 
-                  <div className="flex items-center gap-4 pt-2 border-t border-gray-200">
+<div className="flex items-center gap-4 pt-2 border-t border-gray-200">
                     <div>
                       <p className="text-small text-gray-600">Estimated Cost</p>
                       <p className="font-semibold text-secondary">${ticket.estimatedCost}</p>
                     </div>
-                    <div>
-                      <p className="text-small text-gray-600">Received</p>
-                      <p className="text-secondary">{format(new Date(ticket.dateReceived), "MMM dd, yyyy")}</p>
+                    <div className="flex-1">
+                      <p className="text-small text-gray-600">Date Received</p>
+                      <p className="text-secondary">{ticket.dateReceived ? format(new Date(ticket.dateReceived), "MMM dd, yyyy") : "Unknown date"}</p>
                     </div>
                   </div>
-                </div>
-
                 {ticket.status !== "Completed" && ticket.status !== "Cancelled" && (
                   <div className="flex gap-2 pt-2 border-t border-gray-200">
                     {ticket.status === "Received" && (

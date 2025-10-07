@@ -637,17 +637,17 @@ if (loading) {
                             <div className="flex items-center gap-2">
                               <ApperIcon name="Building2" size={14} />
                               {supplier?.name || 'Unknown Supplier'}
-                            </div>
-                            <div className="flex items-center gap-2">
+<div className="flex items-center gap-1 text-small text-gray-600">
                               <ApperIcon name="Calendar" size={14} />
-                              Ordered: {format(new Date(order.orderDate), 'MMM dd, yyyy')}
+                              Ordered: {order.orderDate ? format(new Date(order.orderDate), 'MMM dd, yyyy') : 'N/A'}
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-1 text-small text-gray-600">
                               <ApperIcon name="Truck" size={14} />
-                              Expected: {format(new Date(order.expectedDelivery), 'MMM dd, yyyy')}
+                              Expected: {order.expectedDelivery ? format(new Date(order.expectedDelivery), 'MMM dd, yyyy') : 'TBD'}
                             </div>
                           </div>
                         </div>
+                      </div>
                         <div className="text-right">
                           <div className="text-h3 font-bold text-secondary">
                             ${order.totalCost.toFixed(2)}

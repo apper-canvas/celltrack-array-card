@@ -1,16 +1,17 @@
-import { useState, useEffect } from "react";
-import { format, subDays, startOfDay, startOfMonth, endOfMonth } from "date-fns";
-import Card from "@/components/atoms/Card";
-import Button from "@/components/atoms/Button";
-import StatCard from "@/components/molecules/StatCard";
-import ApperIcon from "@/components/ApperIcon";
-import Loading from "@/components/ui/Loading";
-import Error from "@/components/ui/Error";
-import tradeInService from "@/services/api/tradeInService";
-import customerService from "@/services/api/customerService";
-import saleService from "@/services/api/saleService";
+import React, { useEffect, useState } from "react";
+import { endOfMonth, format, startOfDay, startOfMonth, subDays } from "date-fns";
 import ReactApexChart from "react-apexcharts";
 import { toast } from "react-toastify";
+import ApperIcon from "@/components/ApperIcon";
+import StatCard from "@/components/molecules/StatCard";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import Customers from "@/components/pages/Customers";
+import Card from "@/components/atoms/Card";
+import Button from "@/components/atoms/Button";
+import customerService from "@/services/api/customerService";
+import tradeInService from "@/services/api/tradeInService";
+import saleService from "@/services/api/saleService";
 
 const BusinessInsights = () => {
   const [insights, setInsights] = useState(null);
@@ -56,16 +57,16 @@ const BusinessInsights = () => {
     }
   };
 
-  const processTradeInData = () => {
+const processTradeInData = () => {
     if (!insights?.tradeInTrends) return { categories: [], series: [] };
     
     const { timeline } = insights.tradeInTrends;
     
     return {
-      categories: timeline.map(t => format(new Date(t.date), "MMM dd")),
+      categories: timeline.map(t => t.date ? format(new Date(t.date), "MMM dd") : "N/A"),
       series: [
         {
-          name: "Avg Offer Amount",
+          name: "Trade-In Value",
           type: "line",
           data: timeline.map(t => t.averageOffer)
         },

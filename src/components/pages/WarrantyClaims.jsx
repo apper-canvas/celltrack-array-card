@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
-import { toast } from 'react-toastify';
-import Card from '@/components/atoms/Card';
-import Button from '@/components/atoms/Button';
-import FormField from '@/components/molecules/FormField';
-import Loading from '@/components/ui/Loading';
-import Error from '@/components/ui/Error';
-import ApperIcon from '@/components/ApperIcon';
-import warrantyClaimService from '@/services/api/warrantyClaimService';
-import saleService from '@/services/api/saleService';
-import supplierService from '@/services/api/supplierService';
-import { format } from 'date-fns';
+import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { format } from "date-fns";
+import ApperIcon from "@/components/ApperIcon";
+import FormField from "@/components/molecules/FormField";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import Card from "@/components/atoms/Card";
+import Button from "@/components/atoms/Button";
+import supplierService from "@/services/api/supplierService";
+import warrantyClaimService from "@/services/api/warrantyClaimService";
+import saleService from "@/services/api/saleService";
 
 const WarrantyClaims = () => {
   const [claims, setClaims] = useState([]);
@@ -189,15 +189,15 @@ const WarrantyClaims = () => {
                   onChange={(e) => setFormData(prev => ({ ...prev, saleId: e.target.value }))}
                   className="w-full px-3 py-2 border rounded bg-white text-secondary focus:outline-none focus:ring-2 focus:ring-primary"
                   required
+required
                 >
                   <option value="">Select Sale</option>
                   {sales.map(sale => (
                     <option key={sale.Id} value={sale.Id}>
-                      {sale.saleId} - {format(new Date(sale.timestamp), 'MMM dd, yyyy')} - ${sale.total.toFixed(2)}
+                      {sale.saleId} - {sale.timestamp ? format(new Date(sale.timestamp), 'MMM dd, yyyy') : 'Unknown date'} - ${sale.total.toFixed(2)}
                     </option>
                   ))}
                 </select>
-              </div>
 
               <div>
                 <label className="block text-sm font-medium text-secondary mb-1.5">
@@ -307,11 +307,10 @@ const WarrantyClaims = () => {
                         <span className={`px-3 py-1 rounded-full text-small font-medium ${getStatusColor(claim.status)}`}>
                           {claim.status}
                         </span>
-                      </div>
+</div>
                       <div className="text-small text-gray-600 space-y-1">
-                        <div className="flex items-center gap-2">
-                          <ApperIcon name="Calendar" size={14} />
-                          Filed: {format(new Date(claim.claimDate), 'MMM dd, yyyy h:mm a')}
+                        <div>
+                          Filed: {claim.claimDate ? format(new Date(claim.claimDate), 'MMM dd, yyyy h:mm a') : 'Unknown'}
                         </div>
                         <div className="flex items-center gap-2">
                           <ApperIcon name="ShoppingCart" size={14} />
@@ -349,13 +348,13 @@ const WarrantyClaims = () => {
                     </div>
                   )}
 
-                  {claim.resolutionNotes && (
+{claim.resolutionNotes && (
                     <div className="border-t pt-3">
                       <h4 className="text-sm font-semibold text-secondary mb-2">Resolution Notes</h4>
                       <p className="text-small text-gray-700">{claim.resolutionNotes}</p>
                       {claim.resolutionDate && (
                         <p className="text-small text-gray-600 mt-1">
-                          Resolved: {format(new Date(claim.resolutionDate), 'MMM dd, yyyy h:mm a')}
+                          Resolved: {claim.resolutionDate ? format(new Date(claim.resolutionDate), 'MMM dd, yyyy h:mm a') : 'Pending'}
                         </p>
                       )}
                     </div>

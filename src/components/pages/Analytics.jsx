@@ -1,14 +1,15 @@
-import { useState, useEffect } from "react";
-import { format, subDays, startOfDay } from "date-fns";
-import Card from "@/components/atoms/Card";
-import StatCard from "@/components/molecules/StatCard";
-import ApperIcon from "@/components/ApperIcon";
-import Loading from "@/components/ui/Loading";
-import Error from "@/components/ui/Error";
-import saleService from "@/services/api/saleService";
-import repairService from "@/services/api/repairService";
+import React, { useEffect, useState } from "react";
+import { format, startOfDay, subDays } from "date-fns";
 import ReactApexChart from "react-apexcharts";
 import { toast } from "react-toastify";
+import ApperIcon from "@/components/ApperIcon";
+import StatCard from "@/components/molecules/StatCard";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import Dashboard from "@/components/pages/Dashboard";
+import Card from "@/components/atoms/Card";
+import repairService from "@/services/api/repairService";
+import saleService from "@/services/api/saleService";
 
 const Analytics = () => {
   const [analytics, setAnalytics] = useState(null);
@@ -49,7 +50,7 @@ const Analytics = () => {
     }
   };
 
-  const revenueChartOptions = {
+const revenueChartOptions = {
     chart: {
       type: "line",
       toolbar: { show: false },
@@ -68,12 +69,11 @@ const Analytics = () => {
         opacityTo: 0.3
       }
     },
-    dataLabels: { enabled: false },
     xaxis: {
-      categories: Array.from({ length: dateRange }, (_, i) => 
-        format(subDays(new Date(), dateRange - i - 1), "MMM dd")
-      ),
-      labels: { style: { colors: "#64748b" } }
+      categories: Array.from({ length: dateRange }, (_, i) => {
+        const date = subDays(new Date(), dateRange - i - 1);
+        return date && !isNaN(date.getTime()) ? format(date, "MMM dd") : "Invalid";
+      })
     },
     yaxis: {
       labels: {

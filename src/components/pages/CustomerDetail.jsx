@@ -1,18 +1,19 @@
-import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import Card from "@/components/atoms/Card";
-import Button from "@/components/atoms/Button";
-import Badge from "@/components/atoms/Badge";
-import ApperIcon from "@/components/ApperIcon";
-import Loading from "@/components/ui/Loading";
-import Error from "@/components/ui/Error";
-import Empty from "@/components/ui/Empty";
-import customerService from "@/services/api/customerService";
-import saleService from "@/services/api/saleService";
-import deviceService from "@/services/api/deviceService";
-import repairService from "@/services/api/repairService";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { format } from "date-fns";
 import { toast } from "react-toastify";
+import ApperIcon from "@/components/ApperIcon";
+import Error from "@/components/ui/Error";
+import Empty from "@/components/ui/Empty";
+import Loading from "@/components/ui/Loading";
+import Repairs from "@/components/pages/Repairs";
+import Badge from "@/components/atoms/Badge";
+import Card from "@/components/atoms/Card";
+import Button from "@/components/atoms/Button";
+import customerService from "@/services/api/customerService";
+import deviceService from "@/services/api/deviceService";
+import repairService from "@/services/api/repairService";
+import saleService from "@/services/api/saleService";
 
 export default function CustomerDetail() {
   const { id } = useParams();
@@ -154,7 +155,7 @@ export default function CustomerDetail() {
           <Empty message="No purchases found" icon="ShoppingBag" />
         ) : (
           <div className="grid gap-4">
-            {purchases.map((sale) => (
+{purchases.map((sale) => (
               <Card key={sale.Id} className="p-4">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
@@ -164,11 +165,9 @@ export default function CustomerDetail() {
                       </span>
                       <Badge variant="success">{sale.paymentMethod}</Badge>
                     </div>
-                    <div className="text-small text-secondary/60">
-                      {format(new Date(sale.date), "MMM dd, yyyy 'at' h:mm a")}
+                    <div className="text-small text-secondary/60 mb-2">
+                      {sale.date ? format(new Date(sale.date), "MMM dd, yyyy 'at' h:mm a") : "Unknown date"}
                     </div>
-                  </div>
-                  <div className="text-right">
                     <div className="text-h3 font-semibold text-primary">
                       ${sale.totalAmount.toFixed(2)}
                     </div>
@@ -236,7 +235,7 @@ export default function CustomerDetail() {
           <Empty message="No repair history found" icon="Wrench" />
         ) : (
           <div className="grid gap-4">
-            {repairs.map((repair) => (
+{repairs.map((repair) => (
               <Card key={repair.Id} className="p-4">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
@@ -262,11 +261,9 @@ export default function CustomerDetail() {
                     <div className="text-small text-secondary/70 mb-2">
                       {repair.deviceModel} - {repair.issueType}
                     </div>
-                    <div className="text-small text-secondary/60">
-                      Created: {format(new Date(repair.createdAt), "MMM dd, yyyy")}
+                    <div className="text-small text-secondary/60 mb-2">
+                      Created: {repair.createdAt ? format(new Date(repair.createdAt), "MMM dd, yyyy") : "Unknown date"}
                     </div>
-                  </div>
-                  <div className="text-right">
                     <div className="text-h3 font-semibold text-primary">
                       ${repair.estimatedCost.toFixed(2)}
                     </div>

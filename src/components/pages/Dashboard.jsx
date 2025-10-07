@@ -1,17 +1,20 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import StatCard from "@/components/molecules/StatCard";
-import Card from "@/components/atoms/Card";
-import Button from "@/components/atoms/Button";
-import Badge from "@/components/atoms/Badge";
-import ApperIcon from "@/components/ApperIcon";
-import Loading from "@/components/ui/Loading";
-import Error from "@/components/ui/Error";
-import deviceService from "@/services/api/deviceService";
-import saleService from "@/services/api/saleService";
-import repairService from "@/services/api/repairService";
 import { format } from "date-fns";
 import { toast } from "react-toastify";
+import ApperIcon from "@/components/ApperIcon";
+import StatCard from "@/components/molecules/StatCard";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import Repairs from "@/components/pages/Repairs";
+import Customers from "@/components/pages/Customers";
+import Inventory from "@/components/pages/Inventory";
+import Badge from "@/components/atoms/Badge";
+import Card from "@/components/atoms/Card";
+import Button from "@/components/atoms/Button";
+import deviceService from "@/services/api/deviceService";
+import repairService from "@/services/api/repairService";
+import saleService from "@/services/api/saleService";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -130,14 +133,14 @@ const Dashboard = () => {
                   key={sale.Id}
                   className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
                 >
-                  <div className="flex items-center gap-3">
+<div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                       <ApperIcon name="ShoppingBag" size={20} className="text-white" />
                     </div>
                     <div>
-                      <p className="font-medium text-secondary">{sale.saleId}</p>
-                      <p className="text-small text-gray-600">
-                        {format(new Date(sale.timestamp), "MMM dd, yyyy HH:mm")}
+                      <p className="font-medium text-secondary">Sale #{sale.Id}</p>
+                      <p className="text-small text-gray-500">
+                        {sale.timestamp ? format(new Date(sale.timestamp), "MMM dd, yyyy HH:mm") : "Unknown time"}
                       </p>
                     </div>
                   </div>
